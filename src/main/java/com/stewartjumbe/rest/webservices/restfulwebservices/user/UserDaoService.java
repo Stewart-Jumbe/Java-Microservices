@@ -62,8 +62,12 @@ public User save(User user){
 
 //Find a user
 public User findOne(int id){
-	
-	return users.get(id);
+	for(User user:users) {
+		if(user.getId()==id) {
+			return user;
+			}
+		}
+	return null;//when user is not found;
 }
 
 

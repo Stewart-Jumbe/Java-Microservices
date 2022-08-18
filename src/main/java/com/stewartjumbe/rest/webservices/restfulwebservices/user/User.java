@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class User {
 	
+	//Attributes
+	
 	private Integer id;
 	
 	private String name;
@@ -13,6 +15,12 @@ public class User {
 	
 	//Constructor
 
+	public User(Integer id, String name, Date birthDate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.birthDate = birthDate;
+	}
 	
 	//Getters and Setters
 	
@@ -20,12 +28,7 @@ public class User {
 		return id;
 	}
 
-	public User(Integer id, String name, Date birthDate) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.birthDate = birthDate;
-	}
+	
 
 	public void setId(Integer id) {
 		this.id = id;
