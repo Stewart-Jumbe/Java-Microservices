@@ -12,7 +12,7 @@ public class UserDaoService {
 	
 	//Attributes
 	private static List<User>users = new ArrayList<>();
-	private static int userCount =3;
+	private static int userCount =0;
 	
 	
 	
@@ -27,6 +27,7 @@ public class UserDaoService {
 	addUser("Steve");
 	addUser("Adam");
 	addUser("Twena");
+	addUser("Twena");
 	}	
 	//Methods
 	
@@ -35,7 +36,7 @@ public class UserDaoService {
 		if(users.contains(userName)) {
 			System.out.println("That user already exists please add a new user");}
 		
-			userCount++;//increment user Count by 1, userCount will also be used as an id
+			userCount++;//increment user Count by 1, userCount will also be used as an id, acting as primary key 
 			
 			users.add(new User(userCount,userName, new Date()));
 			
@@ -51,12 +52,14 @@ public List<User> findAll(){
 	
 	//Save a user
 public User save(User user){
+	//if no id present current Id will be incremented by 1
 		if(user.getId()==null) {
 			user.setId(++userCount);
 		}
+		
 	users.add(user);
+	return user;
 	
-		return user;
 	}
 
 
