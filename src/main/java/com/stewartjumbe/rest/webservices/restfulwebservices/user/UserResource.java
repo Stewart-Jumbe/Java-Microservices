@@ -44,17 +44,19 @@ public class UserResource {
 	@PostMapping("/users")
 	public ResponseEntity<Object> createUser(@RequestBody User user) {
 		//using @ReqestBody puts whatever is entered into the requestbody (via the url) as the input of the createUser method
+		
+		
+		
 		User savedUser= service.save(user);
-		
-		//returning "Created" response
-		
-		//Getting the newly created user ID
+		//Getting the newly created user URI e.g "user/4", this can be used to verify the existence of the record with a Get request
 		// users/{id} --> users/{savedUser.getId()
+		//location = users/4
 		URI location =ServletUriComponentsBuilder
 		.fromCurrentRequest()
 		.path("/{id}")
 		.buildAndExpand(savedUser.getId()).toUri();
 		
+		//returning "Created" response
 		return ResponseEntity.created(location).build();
 		
 	}
