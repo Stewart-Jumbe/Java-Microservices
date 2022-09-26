@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Component;
 
@@ -65,12 +67,19 @@ public User save(User user){
 
 //Find a user
 public User findOne(int id){
-	for(User user:users) {
-		if(user.getId()==id) {
-			return user;
-			}
-		}
-	return null;//when user is not found;
+	Optional<User> empty = Optional.empty();
+	Predicate<? super User> predicate = user -> user.getId() ==id;
+	
+	
+	
+	//Stuctured solution:
+//	for(User user:users) {
+//		if(user.getId()==id) {
+//			return user;
+//			}
+//		} return null
+	
+	return users.stream().filter(predicate ).findFirst().get();
 }
 
 

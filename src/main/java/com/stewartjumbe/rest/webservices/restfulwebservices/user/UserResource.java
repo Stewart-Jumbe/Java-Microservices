@@ -1,9 +1,6 @@
 package com.stewartjumbe.rest.webservices.restfulwebservices.user;
 
-<<<<<<< HEAD
-=======
 import java.net.URI;
->>>>>>> 17cbb2e71b7a01b73fe38843ad7ef8cb45822fae
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +17,8 @@ public class UserResource {
 	
 	
 	//injecting Beans needed to get data from 'db'
+	//alternative way is using constructor injection : private UserDaoService service;
+	//public UserResource(UserDaoService service){this.service = service}
 	@Autowired
 	private UserDaoService service;
 	
