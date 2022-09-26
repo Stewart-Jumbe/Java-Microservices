@@ -58,7 +58,6 @@ public User save(User user){
 		if(user.getId()==null) {
 			user.setId(++userCount);
 		}
-		
 	users.add(user);
 	return user;
 	
@@ -67,17 +66,8 @@ public User save(User user){
 
 //Find a user
 public User findOne(int id){
-	Optional<User> empty = Optional.empty();
-	Predicate<? super User> predicate = user -> user.getId() ==id;
 	
-	
-	
-	//Stuctured solution:
-//	for(User user:users) {
-//		if(user.getId()==id) {
-//			return user;
-//			}
-//		} return null
+	Predicate<? super User> predicate = user -> user.getId().equals(id);
 	
 	return users.stream().filter(predicate ).findFirst().get();
 }
