@@ -3,6 +3,8 @@ package com.stewartjumbe.rest.webservices.restfulwebservices.user;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,7 +57,7 @@ public class UserResource {
 	//input - details of user
 	//output - Created & Return the created URI
 	@PostMapping("/users")
-	public ResponseEntity<Object> createUser(@RequestBody User user) {
+	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
 		//using @ReqestBody puts whatever is entered into the requestbody (via the url) as the input of the createUser method
 		
 		
