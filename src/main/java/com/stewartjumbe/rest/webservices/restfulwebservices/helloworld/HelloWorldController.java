@@ -1,5 +1,9 @@
 package com.stewartjumbe.rest.webservices.restfulwebservices.helloworld;
 
+import java.util.Locale;
+
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 //@REstController notation makes into a controller that can handle rest requests
 @RestController 
 public class HelloWorldController {
+	
+	
+	private MessageSource messageSource;
+	//constructor injection
+	public HelloWorldController(MessageSource messageSource) {
+		 this.messageSource = messageSource;
+	 }
 	
 	
 	@GetMapping(path = "/hello-world")
@@ -26,4 +37,17 @@ public class HelloWorldController {
 		
 		return new HelloWorldBean(String.format("Hello World, %s",name));
 	}
+	
+	/**
+	 * User must use Accept Language header (in Postman or Talend API) then specify which language they want the API to respond in
+	 * @return Good morning Message in chosen language
+	 */
+	@GetMapping(path = "/hello-world-internationalised")
+	public String helloWorldInternationalised() {
+		Locale locale = LocaleContextHolder.getLocale();
+		
+		return messageSource.getMessage("good.morning.message", null, "Default Message", locale);
+	}
+	
+	
 }
