@@ -67,7 +67,7 @@ public class CustomisedResponseEntityExceptionHandler extends ResponseEntityExce
 			multiErrorMsg2 = multiErrorMsg;
 			if(ex.getErrorCount() >1) {
 
-				multiErrorMsg = "errors remaining, first error: " + listOfErrors.get(i).getDefaultMessage();
+				multiErrorMsg = "errors: " + listOfErrors.get(i).getDefaultMessage() +", ";
 				
 
 
