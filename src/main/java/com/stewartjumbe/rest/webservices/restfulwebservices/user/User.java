@@ -2,17 +2,22 @@ package com.stewartjumbe.rest.webservices.restfulwebservices.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-
+@Entity(name ="user_info")
 public class User {
 	
 	//Attributes
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	

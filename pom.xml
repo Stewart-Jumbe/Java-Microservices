@@ -30,13 +30,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-<!-- Actuator for monitor API-->
+<!-- Actuator for monitoring API-->
 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 <!-- HAL explorer for making API accessible to non-techical staff-->
+<!-- http://localhost:8080-->
+<!-- enter actuator or api uri-->
 <dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
