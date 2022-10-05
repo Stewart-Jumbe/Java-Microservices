@@ -36,6 +36,12 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+<!-- HAL explorer for making API accessible to non-techical staff-->
+<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-explorer</artifactId>
+		</dependency>
+
 <!-- HATEOAS-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
