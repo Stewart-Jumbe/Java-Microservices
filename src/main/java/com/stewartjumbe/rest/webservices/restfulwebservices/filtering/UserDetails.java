@@ -1,15 +1,14 @@
 package com.stewartjumbe.rest.webservices.restfulwebservices.filtering;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@JsonIgnoreProperties("password") // a way of applying static filtering to the whole class, but needs to be updated when field name is changed
+@JsonFilter("Dynamicfilter") // needed for dynamic filtering, filtering out password from response
 public class UserDetails {
 	
 	private String name;
 	private String email;
-	
-	@JsonIgnore//Static filtering applied so that response does not contain password. Static filtering on a bean is applied accross different REST API
 	private String password;
 	
 	public UserDetails(String name, String email, String password) {
