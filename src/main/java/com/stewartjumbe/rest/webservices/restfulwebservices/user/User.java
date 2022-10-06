@@ -14,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity(name ="user_info")
 public class User {
 	
+
+	
 	//Attributes
 	
 	@Id
@@ -31,6 +33,8 @@ public class User {
 
 	
 	//Constructor
+	
+	protected User() {} //default constructor 
 
 	public User(Integer id, String name, Date birthDate) {
 		super();
