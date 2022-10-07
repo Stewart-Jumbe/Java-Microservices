@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,17 +16,21 @@ public class Post {
 	@GeneratedValue
 	private Integer id;
 	
+	@Size(min= 10 ,max = 256)
 	private String description;
+
 	
 	@ManyToOne(fetch=FetchType.LAZY)//i'ved used lazy as i dont want user details associated with the post to be provided when getting a post
 	@JsonIgnore
 	private User user;
 	
+
 	//Constructor
 	public Post() {}
 	
-	public Post(String description) {
+	public Post(String description){
 		this.description = description;
+		
 	}
 	
 
@@ -49,6 +54,14 @@ public class Post {
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", description=" + description + "]";
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	};
 	
 	
